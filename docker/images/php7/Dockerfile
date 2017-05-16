@@ -9,7 +9,7 @@ RUN curl https://www.dotdeb.org/dotdeb.gpg | apt-key add - && \
     echo 'deb http://packages.dotdeb.org jessie all' >> /etc/apt/sources.list && \
     apt-get update -y && \
 	apt-get upgrade -y && \
-	apt-get install -y npm curl nginx git supervisor php7.0-fpm php7.0-zip php7.0-mysql php7.0-opcache php7.0-xml
+	apt-get install -y curl nginx git supervisor php7.0-fpm php7.0-zip php7.0-mysql php7.0-opcache php7.0-xml
 
 # Composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
@@ -20,16 +20,6 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
 	chmod +x /usr/bin/composer && \
 	rm -Rf /etc/nginx/* && \
     rm -Rf /src/*
-
-# Node.js
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    apt-get install -y nodejs
-
-# Yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-    apt-get update -y && \
-    apt-get install -y yarn
 
 RUN rm -rf /var/lib/apt/lists/* && apt-get autoremove -y --purge
 
