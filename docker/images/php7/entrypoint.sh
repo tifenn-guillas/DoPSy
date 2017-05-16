@@ -5,7 +5,7 @@ source ~/.bash_profile
 install() {
     rm node_modules/ -Rf
     gosu docker yarn
-    gosu docker gulp
+#    gosu docker gulp
     composer self-update
     gosu docker composer install
     #php app/console assets:install
