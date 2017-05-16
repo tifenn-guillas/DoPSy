@@ -1,4 +1,4 @@
-# DoPSy : (DOcker, Php7 & SYmfony3)
+# DoPSyNg : (DOcker, Php7, SYmfony3 & Angular4)
 
 ## Requierements: 
 - Docker 1.9
@@ -7,7 +7,8 @@
 ## Directory 
 - docker    // Images docker & conf (Php7, nginx, supervisor & logs)
 - docs      // Documentations
-- src       // Symfony3 - Project source code
+- server    // Symfony3 - Project source code
+- client    // Angular4 - Project source code
 
 ## How to install 
 
@@ -28,7 +29,12 @@ Install vendor
 docker-compose run php7 install
 ```
 
-Run the cluster (web + mysql + storage)
+Install node_modules
+```console
+docker-compose run angular install
+```
+
+Run the cluster
 ```console
 docker-compose up
 ```
@@ -43,7 +49,7 @@ docker exec -ti dopsy bash
 - Don't miss to add 127.0.0.1 dopsy.local in /etc/hosts (Unix)
 - Don't miss to add <VM ip> dopsy.local in /etc/hosts (OSX) or in Windows/System32/drivers/etc/hosts (Win)
 
-## Creator
+## Contributors
 
 **Anthony K GROSS**
 - <http://anthonykgross.fr>
@@ -51,10 +57,12 @@ docker exec -ti dopsy bash
 - <https://github.com/anthonykgross>
 - <http://www.twitch.tv/anthonykgross>
 
+**Tifenn Guillas**
+- <http://tifenn-guillas.fr>
+
 ## Technologies
 - PHP7 - Symfony 3 - Composer - PhpUnit
+- Angular4
 - LESS
 - Bootstrap
-- Bower
-- Gulp
 - MySql
