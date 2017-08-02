@@ -1,33 +1,28 @@
 version: '3'
 services:
-  angular:
-    image: dopsyng_angular
-    container_name: angular
-    ports:
-      - 4200:4200
-    volumes:
-      - ./client:/var/www/html
-
-  php7:
-    image: dopsyng_php7
-    container_name: php7
-    links:
-      - mysql:container_mysql
-    ports:
-      - 80:80
-    volumes:
-      - ./docker/conf/supervisor/conf.d:/etc/supervisor/conf.d
-      - ./docker/conf/nginx:/etc/nginx
-      - ./docker/conf/logs:/var/www/logs
-      - ./server:/var/www/html
+  app:
+      image: app
+      container_name: app
+      links:
+        - mysql:container_mysql
+      environment:
+        APP_ENV: dev
+      ports:
+        - 80:80
+        - 9000:9000
+      volumes:
+        - ./docker/conf/supervisor/conf-available:/etc/supervisor/conf-available
+        - ./docker/conf/nginx/sites-available:/etc/nginx/sites-available
+        - ./docker/conf/nginx/fastcgi_params:/etc/nginx/fastcgi_params
+        - ./docker/conf/nginx/mime.types:/etc/nginx/mime.types
+        - ./docker/conf/nginx/nginx.conf:/etc/nginx/nginx.conf
+        - ./docker/conf/logs:/var/www/logs
+        - ./server:/var/www/html/server
+        - ./client:/var/www/html/client
 
   mysql:
-    image: dopsyng_mysql
+    image: mysql
     container_name: mysql
-    volumes:
-      - ./docker/etc/mysql/my.cnf:/etc/mysql/my.cnf
-      - ./docker/etc/mysql/lib:/var/lib/mysql
-      - ./docker/etc/mysql/logs:/var/log/mysql
     ports:
       - 3306:3306
     environment:
