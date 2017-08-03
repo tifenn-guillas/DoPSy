@@ -21,9 +21,13 @@ services:
         - ./client:/var/www/html/client
 
   mysql:
-    image: mysql
+    image: app_mysql
     container_name: mysql
     ports:
       - 3306:3306
+    volumes:
+      - ./docker/etc/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./docker/etc/mysql/lib:/var/lib/mysql
+      - ./docker/etc/mysql/logs:/var/log/mysql
     environment:
       MYSQL_ROOT_PASSWORD: root
