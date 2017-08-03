@@ -1,16 +1,15 @@
 # DoPSyNg : (DOcker, Php7, SYmfony3 & Angular4)
 
-## Requierements: 
+## Requierements
 - Docker 1.9
 - Docker Compose 1.4
 
 ## Directory 
-- docker    // Images docker & conf (Php7, nginx, supervisor & logs)
-- docs      // Documentations
+- docker    // Images docker & conf (PHP7, NGINX, Supervisor, MySQL & logs)
 - server    // Symfony3 - Project source code
 - client    // Angular4 - Project source code
 
-## How to install 
+## Installation 
 
 Create images for Docker
 ```console
@@ -24,15 +23,27 @@ chmod +x install.sh
 ./install.sh
 ```
 
-Install vendor
+Install application
 ```console
-docker-compose run php7 install
+docker-compose run app install
+```
+## Launch the application
+
+**Development**
+
+By default, the application is launch in development environment.
+
+**Production**
+
+To launch the application in production environment, modify the variable APP_ENV in 'docker-compose.yml':
+```console
+services:
+  app:
+    environment:
+      APP_ENV: prod
 ```
 
-Install node_modules
-```console
-docker-compose run angular install
-```
+**Launching**
 
 Run the cluster
 ```console
@@ -41,13 +52,13 @@ docker-compose up
 
 In another terminal
 ```console
-docker exec -ti dopsy bash
+docker exec -ti app bash
 ```
 
 ## Development 
 
-- Don't miss to add 127.0.0.1 dopsy.local in /etc/hosts (Unix)
-- Don't miss to add <VM ip> dopsy.local in /etc/hosts (OSX) or in Windows/System32/drivers/etc/hosts (Win)
+- Don't miss to add 127.0.0.1 dopsyng.local in /etc/hosts (Unix)
+- Don't miss to add <VM ip> dopsyng.local in /etc/hosts (OSX) or in Windows/System32/drivers/etc/hosts (Win)
 
 ## Contributors
 
@@ -59,10 +70,10 @@ docker exec -ti dopsy bash
 
 **Tifenn Guillas**
 - <http://tifenn-guillas.fr>
+- <https://github.com/tifenn-guillas>
 
 ## Technologies
-- PHP7 - Symfony 3 - Composer - PhpUnit
-- Angular4
-- LESS
-- Bootstrap
+- PHP7 - Symfony3 - Composer - PhpUnit
+- Angular4 - Bootstrap
 - MySql
+- Docker
