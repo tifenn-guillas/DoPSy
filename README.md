@@ -14,34 +14,22 @@
 
 Create images for Docker
 ```console
-chmod +x create-images.sh
-./create-images.sh
+make
 ```
 
-Define permissions in folders & conf files
+Define permissions and dependencies
 ```console
-chmod +x install.sh
-./install.sh
-```
-
-Install vendor
-```console
-docker-compose run php7 install
-```
-
-Install node_modules
-```console
-docker-compose run angular install
+make install
 ```
 
 Run the cluster
 ```console
-docker-compose up
+make run
 ```
 
 In another terminal
 ```console
-docker exec -ti dopsy bash
+docker exec -ti app bash
 ```
 
 ## Development 
@@ -59,10 +47,10 @@ docker exec -ti dopsy bash
 
 **Tifenn Guillas**
 - <http://tifenn-guillas.fr>
+- <https://github.com/tifenn-guillas>
 
 ## Technologies
 - PHP7 - Symfony 3 - Composer - PhpUnit
-- Angular4
-- LESS
-- Bootstrap
+- Angular4 - Bootstrap
 - MySql
+- Docker
