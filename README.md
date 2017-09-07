@@ -1,4 +1,4 @@
-# DoPSyNg : (DOcker, Php7, SYmfony3 & Angular4)
+# DoPSyNg : (Docker, Php7, Symfony3 & Angular4)
 
 ## Requierements
 - Docker 1.9
@@ -13,20 +13,14 @@
 
 Create images for Docker
 ```console
-chmod +x create-images.sh
-./create-images.sh
+make
 ```
 
-Define permissions in folders & conf files
+Define permissions and dependencies
 ```console
-chmod +x install.sh
-./install.sh
+make install
 ```
 
-Install application
-```console
-docker-compose run app install
-```
 ## Launch the application
 
 **Development**
@@ -47,7 +41,7 @@ services:
 
 Run the cluster
 ```console
-docker-compose up
+make run
 ```
 
 In another terminal
