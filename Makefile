@@ -4,7 +4,7 @@ build:
 	docker build --file="docker/images/app/Dockerfile" --tag="$(NAME_APP):latest" docker/images/app/.
 
 install:
-	chmod -Rf 777 docker/
+	chmod -Rf 777 docker/ || true
 	chmod 644 docker/etc/mysql/my.cnf
 	docker-compose run app install
 
