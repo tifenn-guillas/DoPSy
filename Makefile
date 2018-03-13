@@ -9,7 +9,6 @@ install:
 	docker-compose run app install
 
 debug:
-	docker run -it --rm --entrypoint=/bin/bash $(NAME_APP):master
-
+	docker exec -it $(NAME_APP) gosu docker bash
 run:
 	docker-compose up
