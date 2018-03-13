@@ -1,6 +1,6 @@
 FROM anthonykgross/docker-base:latest
 
-MAINTAINER Anthony K GROSS
+LABEL maintainer="Tifenn Guillas"
 
 WORKDIR /var/www/html
 
