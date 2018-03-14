@@ -1,4 +1,4 @@
-# DoPSyNg : (Docker, Php7, Symfony3 & Angular4)
+# DoPSyNg : (Docker, Php7, Symfony3 & Angular5)
 
 ## Requierements
 - Docker 1.9
@@ -7,7 +7,7 @@
 ## Directory 
 - docker    // Images docker & conf (PHP7, NGINX, Supervisor, MySQL & logs)
 - server    // Symfony3 - Project source code
-- client    // Angular4 - Project source code
+- client    // Angular5 - Project source code
 
 ## Installation 
 
@@ -49,12 +49,13 @@ In another terminal
 docker exec -ti app bash
 ```
 
-## Development 
+## Author
 
-- Don't miss to add 127.0.0.1 dopsyng.local in /etc/hosts (Unix)
-- Don't miss to add <VM ip> dopsyng.local in /etc/hosts (OSX) or in Windows/System32/drivers/etc/hosts (Win)
+**Tifenn Guillas**
+- <http://tifenn-guillas.fr>
+- <https://github.com/tifenn-guillas>
 
-## Contributors
+## Contributor
 
 **Anthony K GROSS**
 - <http://anthonykgross.fr>
@@ -62,12 +63,8 @@ docker exec -ti app bash
 - <https://github.com/anthonykgross>
 - <http://www.twitch.tv/anthonykgross>
 
-**Tifenn Guillas**
-- <http://tifenn-guillas.fr>
-- <https://github.com/tifenn-guillas>
-
 ## Technologies
-- PHP7 - Symfony3 - Composer - PhpUnit
-- Angular4 - Bootstrap
+- PHP7 - Symfony 3.4 - Composer - PhpUnit
+- Angular5 - Bootstrap3
 - MySql
 - Docker
